@@ -1,11 +1,18 @@
 import React from "react";
-import "./styles.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { SignIn, SignUp } from "./components/auth";
+import { Dashboard } from "./components/dashboard";
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/" component={Dashboard} />
+        </Switch>
+      </Router>
+    </>
   );
 }
