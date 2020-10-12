@@ -1,5 +1,6 @@
 import React from "react";
-import { AddTask, Tasks } from "../tasks";
+import { Tasks } from "../tasks";
+import AddTask from "../tasks/AddTask";
 
 export const Dashboard = () => {
   return (
