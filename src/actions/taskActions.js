@@ -30,7 +30,6 @@ export const removeTask = (task) => {
       .doc(task.id)
       .delete()
       .then(() => {
-        console.log(task.id);
         dispatch({
           type: "REMOVE_TASK"
         });

@@ -4,22 +4,30 @@ import { formStyle } from "../../constants.js";
 import { addTask } from "../../actions/taskActions";
 import { connect } from "react-redux";
 
-const AddTask = (props) => {
+const AddTask = ({ addTask }) => {
   const [state, setState] = useState({
     task: "",
     checked: false
   });
 
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setState((prevState) => {
+      return { ...prevState, task: value };
+    });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
-    props.addTask(state);
-    setState((prevState) => {
-      return {
-        ...prevState,
-        task: ""
-      };
-    });
+    if (state.task) {
+      addTask(state);
+      setState((prevState) => {
+        return {
+          ...prevState,
+          task: ""
+        };
+      });
+    }
   };
 
   return (
@@ -28,14 +36,7 @@ const AddTask = (props) => {
         <Form.Group controlId="task">
           <Form.Control
             value={state.task}
-            onChange={(e) => {
-              e.persist();
-              if (e.target.value) {
-                setState((prevState) => {
-                  return { ...prevState, task: e.target.value };
-                }, console.log(state));
-              }
-            }}
+            onChange={(e) => handleChange(e)}
             type="text"
             placeholder="Add a task"
           />
