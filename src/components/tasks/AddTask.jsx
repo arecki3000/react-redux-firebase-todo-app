@@ -12,7 +12,6 @@ const AddTask = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addTask(state);
-    console.log(state);
     setState((prevState) => {
       return {
         task: ""
