@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NavItems } from "./NavItems";
+import NavItems from "./NavItems";
 
-export const NavBar = () => {
+const NavBar = () => {
   return (
     <>
       <nav className="navbar navbar-light bg-light d-flex justify-content-center">
@@ -14,3 +14,5 @@ export const NavBar = () => {
     </>
   );
 };
+
+export default NavBar;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const NavItems = () => {
+const NavItems = () => {
   return (
     <>
       <Link to="/signin" className="nav-link">
@@ -16,3 +16,5 @@ export const NavItems = () => {
     </>
   );
 };
+
+export default NavItems;

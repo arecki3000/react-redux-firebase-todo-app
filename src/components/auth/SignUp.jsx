@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { formStyle } from "../../constants.js";
 
-export const SignUp = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -49,3 +49,5 @@ export const SignUp = () => {
     </div>
   );
 };
+
+export default SignUp;

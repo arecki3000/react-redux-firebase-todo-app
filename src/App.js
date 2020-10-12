@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { SignIn, SignUp } from "./components/auth";
+import SignIn from "./components/auth/SignIn";
+import SignUp from "./components/auth/SignUp";
 import { Dashboard } from "./components/dashboard";
-import { NavBar } from "./components/layout";
+import NavBar from "./components/layout/NavBar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
