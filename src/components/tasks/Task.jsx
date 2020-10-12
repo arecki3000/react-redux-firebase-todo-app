@@ -2,8 +2,14 @@ import React from "react";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
 import moment from "moment";
+import { removeTask } from "../../actions/taskActions";
+import { connect } from "react-redux";
 
-export const Task = ({ task }) => {
+const Task = ({ task, removeTask }) => {
+  const handleRemove = (task) => {
+    removeTask(task);
+  };
+
   return (
     <tr>
       <td>{task.task}</td>
@@ -16,8 +22,17 @@ export const Task = ({ task }) => {
         <DeleteForeverOutlinedIcon
           style={{ cursor: "pointer" }}
           className="text-danger"
+          onClick={() => handleRemove(task)}
         />
       </td>
     </tr>
   );
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeTask: (task) => dispatch(removeTask(task))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Task);
