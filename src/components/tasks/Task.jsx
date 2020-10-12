@@ -2,12 +2,16 @@ import React from "react";
 import DeleteForeverOutlinedIcon from "@material-ui/icons/DeleteForeverOutlined";
 import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
 import moment from "moment";
-import { removeTask } from "../../actions/taskActions";
+import { removeTask, toggleChecked } from "../../actions/taskActions";
 import { connect } from "react-redux";
 
-const Task = ({ task, removeTask }) => {
+const Task = ({ task, removeTask, toggleChecked }) => {
   const handleRemove = (task) => {
     removeTask(task);
+  };
+
+  const handleToggle = (task) => {
+    toggleChecked(task);
   };
 
   return (
@@ -15,7 +19,11 @@ const Task = ({ task, removeTask }) => {
       <td>{task.task}</td>
       <td>{moment(task.date.toDate()).calendar()}</td>
       <td style={{ textAlign: "center" }}>
-        <CheckCircleOutlinedIcon style={{ cursor: "pointer" }} />
+        <CheckCircleOutlinedIcon
+          className={task.checked ? "text-success" : "text-muted"}
+          style={{ cursor: "pointer" }}
+          onClick={() => handleToggle(task)}
+        />
       </td>
 
       <td style={{ textAlign: "center" }}>
@@ -31,7 +39,8 @@ const Task = ({ task, removeTask }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    removeTask: (task) => dispatch(removeTask(task))
+    removeTask: (task) => dispatch(removeTask(task)),
+    toggleChecked: (task) => dispatch(toggleChecked(task))
   };
 };
 

@@ -7,7 +7,7 @@ const taskReducer = (state = {}, action) => {
       return state;
     }
     case "ADD_TASK_ERR": {
-      toast.error("Error occurred");
+      toast.error("Add Error occurred");
       return state;
     }
     case "REMOVE_TASK": {
@@ -15,7 +15,15 @@ const taskReducer = (state = {}, action) => {
       return state;
     }
     case "REMOVE_TASK_ERR": {
-      toast.error("Error occurred");
+      toast.error("Delete Error occurred");
+      return state;
+    }
+    case "TOGGLE_CHECKED": {
+      toast.info("Task status changed");
+      return state;
+    }
+    case "TOGGLE_CHECKED_ERR": {
+      toast.error("Toggle Error occurred");
       return state;
     }
     default:
