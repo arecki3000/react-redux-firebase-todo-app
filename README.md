@@ -1,6 +1,6 @@
 ### ToDo App created with React/Redux/Firebas  
 
-[Check demo here]https://6tv0u.csb.app/signin
+[Check demo here](https://6tv0u.csb.app/signin)
 
 To be able to see tasks user must sign up (you can use fake email).  
 
