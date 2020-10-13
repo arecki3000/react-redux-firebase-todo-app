@@ -4,7 +4,7 @@
 
 To be able to see tasks user must sign up (you can use fake email).  
 
-After signing in users will be able to:
+After signing in users are able to:
 - see tasks
 - add task
 - check/uncheck task
